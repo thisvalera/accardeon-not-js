@@ -1,0 +1,128 @@
+ <div class="services__acordeon services-acordeon">
+                <input class="services-acordeon__btn" id="acordeon-4" type="checkbox" name="acordeons">
+                <label class="services-acordeon__name" for="acordeon-4">ЗАМЕНА ШТАТНЫХ ЛИНЗ НА ЛЮБЫХ АВТО</label>
+                <div class="services-acordeon__content">
+                    <div class="services-acordeon__info">
+                    <p class="services-acordeon__text">Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах 
+                        и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
+                        <p class="services-acordeon__text">Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах 
+                            и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.</p>
+                        </div>
+                        <div class="services-acordeon__images">
+                            <div class="services-acordeon__image " style="background-image: url('images/content-1.jpg');">
+                            </div>
+                            <div class="services-acordeon__image" style="background-image: url('images/content-2.jpg');">
+                            </div>
+                            <div class="services-acordeon__image" style="background-image: url('images/content-3.jpg');">
+                            </div>
+                            <div class="services-acordeon__image" style="background-image: url('images/content-4.jpg');">
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+            SCSS
+            -----------------------------------------
+            
+            .services-acordeon {
+    position: relative;
+    width: 100%;
+    color: #fff;
+    overflow: hidden;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 9px;
+        background-color: #fd3239;
+        bottom: 0;
+        left: 0;
+    }
+    &__name {
+        position: relative;
+        display: block;
+        padding: 48px 0;
+        background: transparent;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 93.69%;
+        text-transform: uppercase;
+        line-height: 3;
+        cursor: pointer;
+        &::after {
+            content: "";
+            position: absolute;
+            background-image: url("../images/plus.svg");
+            background-repeat: no-repeat;
+            background-position: center center;
+            right: 0;
+            top: 25%;
+            display: block;
+            width: 75px;
+            height: 77px;
+            background-color: #fd3239;
+            border-radius: 50%;
+            line-height: 3;
+            text-align: center;
+            transition: all 0.35s;
+        }
+    }
+    &__content {
+        max-height: 0;
+        overflow: hidden;
+        color: #fff;
+        transition: all 0.35s;
+        background-color: transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__info {
+        max-width: 860px;
+        width: 100%;
+    }
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 120%;
+        &:first-child {
+            margin-bottom: 25px;
+        }
+    }
+    &__images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 30px;
+    }
+    &__image {
+        width: 272px;
+        height: 143px;
+        background-size: cover;
+        object-fit: cover;
+    }
+    &__btn {
+        display: none;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        &:checked ~ .services-acordeon__content {
+            max-height: none;
+            padding-bottom: 55px;
+        }
+
+        &:checked + .services-acordeon__name {
+            font-size: 36px;
+            line-height: 93.69%;
+            text-transform: uppercase;
+            padding-top: 75px;
+        }
+
+        &:checked + .services-acordeon__name::after {
+            transform: rotate(315deg);
+        }
+    }
+}
